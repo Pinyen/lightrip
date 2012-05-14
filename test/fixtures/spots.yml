@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  lat: MyString
+  lon: MyString
+  info: MyText
+  opentime: MyString
+  attr1: MyString
+  attr2: MyString
+  attr3: MyString
+  attr4: MyString
+  attr5: MyString
+  photo: MyString
+
+two:
+  name: MyString
+  lat: MyString
+  lon: MyString
+  info: MyText
+  opentime: MyString
+  attr1: MyString
+  attr2: MyString
+  attr3: MyString
+  attr4: MyString
+  attr5: MyString
+  photo: MyString

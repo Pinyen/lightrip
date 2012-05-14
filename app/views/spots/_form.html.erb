@@ -1,0 +1,61 @@
+<%= form_for(@spot) do |f| %>
+  <% if @spot.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@spot.errors.count, "error") %> prohibited this spot from being saved:</h2>
+
+      <ul>
+      <% @spot.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :lat %><br />
+    <%= f.text_field :lat %>
+  </div>
+  <div class="field">
+    <%= f.label :lon %><br />
+    <%= f.text_field :lon %>
+  </div>
+  <div class="field">
+    <%= f.label :info %><br />
+    <%= f.text_area :info %>
+  </div>
+  <div class="field">
+    <%= f.label :opentime %><br />
+    <%= f.text_field :opentime %>
+  </div>
+  <div class="field">
+    <%= f.label :attr1 %><br />
+    <%= f.text_field :attr1 %>
+  </div>
+  <div class="field">
+    <%= f.label :attr2 %><br />
+    <%= f.text_field :attr2 %>
+  </div>
+  <div class="field">
+    <%= f.label :attr3 %><br />
+    <%= f.text_field :attr3 %>
+  </div>
+  <div class="field">
+    <%= f.label :attr4 %><br />
+    <%= f.text_field :attr4 %>
+  </div>
+  <div class="field">
+    <%= f.label :attr5 %><br />
+    <%= f.text_field :attr5 %>
+  </div>
+  <div class="field">
+    <%= f.label :photo %><br />
+    <%= f.text_field :photo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
