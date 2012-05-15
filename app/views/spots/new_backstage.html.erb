@@ -1,0 +1,244 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>LigiTrip</title>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript" src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAsYV7UusYC8W-CUCDLpFQYRREFBcOGxpqCCUdK6ZnJW0Tb_Kj_BRWDfzZYc6lwJiQloNiuOKFThoUBQ"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+<script src="http://www.google.com/jsapi?key=AIzaSyA5m1Nc8ws2BbmPRwKu5gFradvD_hgq6G0" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="../stylesheets/index.css" media="screen">
+</head>
+<body >
+<h1>backstage input</h1>
+
+
+
+<div id="left">
+  <div id ="form">
+
+<form accept-charset="UTF-8" action="/spots" class="new_spot" id="new_spot" method="post" enctype="multipart/from-data"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="stHZFUsORkWstjw1ptZuf+6HUniKiPLhvsu5joBoXdo=" /></div>
+
+  <div class="field">
+	    <label for="spot_name">Name</label><input id="spot_name" name="spot[name]" size="30" type="text" />
+	  Zoom︰<select name="spot[zoom]">
+	  <option value="1">1</option>
+	  <option value="2">2</option>
+	  <option value="3">3</option>
+	  <option value="4">4</option>
+	  <option value="5">5</option>
+	  <option value="6">6</option>
+	  <option value="7">7</option>
+	  <option value="8">8</option>
+	  <option value="9">9</option>
+	  <option value="10">10</option>
+	  <option value="11">11</option>
+	  <option value="12">12</option>
+	  <option value="13">13</option>
+	  <option value="14">14</option>
+	  <option value="15">15</option>
+	  <option value="16">16</option>
+	  <option value="17">17</option>
+	  <option value="18">18</option>
+	  <option value="19">19</option>
+	  <option value="20">20</option></select>
+
+  </div>
+  <!--<div>
+	  Type:<select name ="type">
+	  <option value ="找刺激">找刺激</option>
+	  <option value ="">2</option>
+	  <option value ="">3</option>
+	  <option value ="">4</option>
+	  <option value ="">5</option>
+	  </select>	
+  </div>-->	
+  <div class="field">
+		Address︰<input id="address" name="spot[address]" type="text" size="40" value="" />
+		<input name="button1" type="button" value="Search" onclick="javascript:addressGps();" /></br>
+	</div>
+	<div class='field'>
+		<label for="spot_lat">Latitude</label>
+    	<input id="spot_lat" name="spot[lat]" size="30" type="text" />
+    	<label for="spot_lon">Longitude</label>
+    	<input id="spot_lon" name="spot[lon]" size="30" type="text" />
+  	<input id="inLatLng" name="inLatLng" type="text" size="40" value="" onclick ="javascript:getAddress();" style="display:none"/>
+	<input name="button2" type="button" value="Search" onclick="javascript:getAddress();" /></br>
+	<!--MouseAddress︰<input id="mouseAddress" name="spot[address]" type="text" size="40" value="" /></br>--> 
+	<!--Description:<textarea rows="5" cols="40" name ="description" value=""></textarea>-->
+    
+  </div>
+  <div class="field">
+   
+  </div>
+  <div class="field">
+    <label for="spot_info">Info</label><br />
+    <textarea cols="40" id="spot_info" name="spot[info]" rows="20"></textarea>
+  </div>
+  <div class="field">
+    <label for="spot_opentime">Opentime</label>
+    <input id="spot_opentime" name="spot[opentime]" size="30" type="text" />
+  </div>
+  <div class="field">
+    <label for="spot_attr1">Attr1</label>
+    <input id="spot_attr1" name="spot[attr1]" size="30" type="text" />
+  </div>
+  <div class="field">
+    <label for="spot_attr2">Attr2</label>
+    <input id="spot_attr2" name="spot[attr2]" size="30" type="text" />
+  </div>
+  <div class="field">
+    <label for="spot_attr3">Attr3</label>
+    <input id="spot_attr3" name="spot[attr3]" size="30" type="text" />
+  </div>
+  <div class="field">
+    <label for="spot_attr4">Attr4</label>
+    <input id="spot_attr4" name="spot[attr4]" size="30" type="text" />
+  </div>
+  <div class="field">
+    <label for="spot_attr5">Attr5</label>
+    <input id="spot_attr5" name="spot[attr5]" size="30" type="text" />
+  </div>
+
+  
+
+ 
+  <div class="actions">
+    <input name="commit" type="submit" value="Create Spot" />
+  </div>
+</form>
+
+
+
+
+</div>
+
+  <div id="photo">
+  <h2>The pictures searched from google</h2>
+    <div id="content">Loading...</div>
+</div>
+</div>
+
+<div id = "right">
+  <div id="myMap" >
+      <h2>myMap</h2>
+    </div>
+  </div>
+
+<script type="text/javascript">
+var myMap = new GMap2(document.getElementById("myMap"));  
+var myLatLng = new GLatLng(25.04763902653048, 121.51715755462646);  
+myMap.setCenter(myLatLng, 15);  
+//myMap.addControl(new GSmallMapControl() );  
+myMap.addControl(new GMenuMapTypeControl() );
+myMap.enableGoogleBar();
+myMap.enableScrollWheelZoom();
+//document.getElementById('inLatLng').value = myLatLng.toString();  
+  
+var myMarker = new GMarker( myLatLng, {draggable: true} );  //myMarker是目前單擊位置
+var iconA = new GIcon(G_DEFAULT_ICON, "http://maps.google.com/mapfiles/markerA.png"); 
+var mysMarker = new GMarker(new GLatLng(25, 121), {icon: iconA});//mysMarker為搜尋的marker
+myMap.addOverlay(mysMarker);  
+myMap.addOverlay( myMarker );  
+
+GEvent.addListener(myMarker, "dragend", function() {
+  myMarker.openInfoWindowHtml("將來讀取景點資料");  
+  });
+//讀取單擊時的座標 
+GEvent.addListener(myMap, "click", function( overlay, point ){  
+      if(point){  
+       //設定標註座標  
+       myMarker.setLatLng(point);  //marker換位置
+
+		latlon = point.toString();  
+        var arrayOfStrings = latlon.split(',');
+        var lat = arrayOfStrings[0].replace("(","");
+       	var lon = arrayOfStrings[1].replace(")","");
+        document.getElementById('spot_lat').value = lat; 
+        document.getElementById('spot_lon').value = lon.trim(); 
+
+
+
+       //document.getElementById('inLatLng').value = point.toString();  
+      }  
+     }); 
+
+function getAddress() {  
+ 
+ var strLat = document.getElementById('spot_lat').value;
+ var strLon = document.getElementById('spot_lon').value;
+ var strLatLng = "(" + strLat;
+ strLatLng = strLatLng + ", ";
+ strLatLng = strLatLng + strLon;
+ strLatLng = strLatLng + ")";
+
+//var strLatLng = document.getElementById('inLatLng').value; 
+
+ strLatLng = strLatLng.replace("(", "[");  
+ strLatLng = strLatLng.replace(")", "]");  
+ var arrLatLng = eval(strLatLng);  //讀出來換成array
+ var getLatLng = new GLatLng(arrLatLng[0], arrLatLng[1]);  //可以分出經緯度
+  
+ //移動地圖中心點  
+ myMap.panTo( getLatLng );  
+ //設定標註座標  
+ //myMarker.setLatLng( myLatLng );   
+ var myGeocoder = new GClientGeocoder();  
+ myGeocoder.getLocations(getLatLng, function(addresses) {  
+        if(addresses.Status.code != 200) {  
+         alert("此座標沒有找到對應的地址 " + getLatLng.toUrlValue());  
+        } else {   
+         var result = addresses.Placemark[0];  
+         //myMarker.openInfoWindowHtml( result.address );  
+         document.getElementById('address').value = result.address;  
+        }  
+       });  
+}  
+//從位置去找gps
+function addressGps() { 
+ var myGeocoder = new GClientGeocoder();  
+ var address = document.getElementById('address').value;  //從input中拿資料
+ myGeocoder.getLatLng(address, function getRequest( point ){  
+       if(!point){  
+        alert('這個地址 Google 說不知道！');  
+       }else{  
+        //移動地圖中心點  
+        myMap.panTo( point );  
+        //設定標註座標  
+        mysMarker.setLatLng(point);  //若要創很多可以直接在這裡改
+        latlon = point.toString();  
+        var arrayOfStrings = latlon.split(',');
+        var lat = arrayOfStrings[0].replace("(","");
+       	var lon = arrayOfStrings[1].replace(")","");
+        document.getElementById('spot_lat').value = lat; 
+        document.getElementById('spot_lon').value = lon.trim(); 
+       }  
+      });  
+}  
+    google.load('search', '0');
+    function searchPhoto() {
+      // Create a search control
+      var searchControl = new google.search.SearchControl();
+      // Create an ImageSearch
+      var imageSearch = new google.search.ImageSearch();
+      imageSearch.setRestriction(google.search.ImageSearch.RESTRICT_IMAGETYPE,
+                                 google.search.ImageSearch.IMAGETYPE_PHOTO);
+      // Add the searcher to the SearchControl
+      searchControl.addSearcher(imageSearch);
+      // tell the searcher to draw itself and tell it where to attach
+      searchControl.draw(document.getElementById("content"));
+      // The faces of Russia
+      searchControl.execute('Russia');
+    }
+    google.setOnLoadCallback(searchPhoto);
+ 
+
+</script>
+</body>
+</html>
+

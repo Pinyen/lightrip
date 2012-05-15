@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery UI Example Page</title>
+<link type="text/css" href="css/ui-lightness/jquery-ui-1.8.20.custom.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.20.custom.min.js"></script>
+
+
+<style type="text/css">
+body {
+	font-family: "新微軟正黑體","微軟正黑體", Arial, Helvetica, sans-serif;
+	color:#FFFFFF;
+}
+h1	{
+	font-size:30px;
+	line-height:10px;
+	text-align:center;
+}
+div {
+	padding:7px;
+	border-radius:5px;
+}
+.menu {
+	position:absolute;
+	top:0;
+	left:0;
+	width:800px;
+	height:600px;
+	position:absolute;
+}
+.title {
+	position:absolute;
+	top:0px;
+	left:0px;
+	right:0;
+	height:60px;
+	background-color:#3399FF;
+	color:#FFFFFF;
+}
+.map {
+	position:absolute;
+	top:90px;
+	left:0px;
+	height: 480px;
+	width: 360px;
+	background-color:#FFFFFF;
+	border: 5px #999999 solid;
+}
+
+.guider {
+	position:absolute;
+	top:90px;
+	left:400px;
+	height:190px;
+	right:0;
+	background:#999999;
+	background-color: #66FF66;
+}
+.attri {
+	position:absolute;
+	top:310px;
+	right:0;
+	left:400px;
+	height:190px;
+	background-color:#FFCC33;
+}
+.active {
+	position:absolute;
+	top:530px;
+	right:0;
+	left:400px;
+	height:50px;
+	background:#6C6;
+	background-color: #FF3366;
+}
+</style>
+<script>
+	$(function() {
+		$( "#slider" ).slider({
+			orientation: "vertical",
+			value:50,
+			min: 0,
+			max: 100,
+			step: 20,
+			slide: function( event, ui ) {
+				$( "#amount" ).val( ui.value );
+			}
+		});
+		$( "#amount" ).val( $( "#slider" ).slider( "value" ) );
+		
+		$( "#slider2" ).slider({
+			orientation: "vertical",
+			value:50,
+			min: 0,
+			max: 100,
+			step: 20,
+			slide: function( event, ui ) {
+				$( "#amoun2t" ).val( ui.value );
+			}
+		});
+		$( "#amount3" ).val( $( "#slider3" ).slider( "value3" ) );
+		$( "#slider3" ).slider({
+			orientation: "vertical",
+			value:50,
+			min: 0,
+			max: 100,
+			step: 20,
+			slide: function( event, ui ) {
+				$( "#amount3" ).val( ui.value );
+			}
+		});
+		$( "#amount3" ).val( $( "#slider3" ).slider( "value3" ) );
+		$( "#slider4" ).slider({
+			orientation: "vertical",
+			value:50,
+			min: 0,
+			max: 100,
+			step: 20,
+			slide: function( event, ui ) {
+				$( "#amount4" ).val( ui.value );
+			}
+		});
+		$( "#amount5" ).val( $( "#slider5" ).slider( "value5" ) );
+		$( "#slider5" ).slider({
+			orientation: "vertical",
+			value:50,
+			min: 0,
+			max: 100,
+			step: 20,
+			slide: function( event, ui ) {
+				$( "#amount5" ).val( ui.value );
+			}
+		});
+		$( "#amount5" ).val( $( "#slider5" ).slider( "value5" ) );
+	});
+</script>
+
+</head>
+
+<body>
+<div class="menu">
+<div class="title"><h1 style="font-size:40px;">LighTrip 來去旅行吧！</h1></div>
+<div class="map">
+<img src="taiwan_map.jpg" width="349" height="487" />
+</div>
+<div class="guider">
+  <h1>使用說明</h1></div>
+<div class="attri">
+<h1>加權你的旅遊屬性</h1>
+<div style="width:380px; position:absolute; top:60px; bottom:20px; left:25px;">
+<div style="width:50px; position:absolute; bottom:0px; height:0px; left:10px;">
+	<label for="amount">找美食</label>
+	<input type="hidden" id="amount" style="border:0; color:#f6931f; font-weight:bold; width:50px" />
+</div>
+<div style="width:50px; position:absolute; bottom:0px; height:0px; left:80px;">
+	<label for="amount2">找刺激</label>
+	<input type="hidden" id="amount2" style="border:0; color:#f6931f; font-weight:bold; width:50px" />
+</div>
+<div style="width:50px; position:absolute; bottom:0px; height:0px; left:150px;">
+	<label for="amount3">找風景</label>
+	<input type="hidden" id="amount3" style="border:0; color:#f6931f; font-weight:bold; width:50px;" />
+</div>
+<div style="width:50px; position:absolute; bottom:0px; height:0px; left:220px;">
+	<label for="amount4">找悠閒</label>
+	<input type="hidden" id="amount4" style="border:0; color:#f6931f; font-weight:bold; width:50px;" />
+</div>
+<div style="width:50px; position:absolute; bottom:0px; height:0px; left:290px;">
+	<label for="amount5">找好康</label>
+	<input type="hidden" id="amount5" style="border:0; color:#f6931f; font-weight:bold; width:50px;" />
+</div>
+<div id="slider" style="position:absolute; top:10px; left:30px; width:0px; height:80px"></div>
+<div id="slider2" style="position:absolute; top:10px; left:100px; width:0px; height:80px"></div>
+<div id="slider3" style="position:absolute; top:10px; left:170px; width:0px; height:80px"></div>
+<div id="slider4" style="position:absolute; top:10px; left:240px; width:0px; height:80px"></div>
+<div id="slider5" style="position:absolute; top:10px; left:310px; width:0px; height:80px"></div>
+</div>
+
+
+
+</div>
+<div class="active">
+  <h1>確認送出</h1></div>
+</div>
+
+</body>
+</html>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120513034538) do
+ActiveRecord::Schema.define(:version => 20120514100842) do
 
   create_table "spots", :force => true do |t|
     t.string   "name"
@@ -19,14 +19,16 @@ ActiveRecord::Schema.define(:version => 20120513034538) do
     t.string   "lon"
     t.text     "info"
     t.string   "opentime"
-    t.string   "attr1"
-    t.string   "attr2"
-    t.string   "attr3"
-    t.string   "attr4"
-    t.string   "attr5"
-    t.string   "photo"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "address"
+    t.binary   "picture"
+    t.decimal  "zoom"
+    t.decimal  "attr1"
+    t.decimal  "attr2"
+    t.decimal  "attr3"
+    t.decimal  "attr4"
+    t.decimal  "attr5"
   end
 
 end

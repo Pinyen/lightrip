@@ -40,7 +40,9 @@ class SpotsController < ApplicationController
   # POST /spots
   # POST /spots.json
   def create
-    @spot = Spot.new(params[:spot])
+    
+    @spot = Spot.new(
+      params[:spot])
 
     respond_to do |format|
       if @spot.save
@@ -57,9 +59,10 @@ class SpotsController < ApplicationController
   # PUT /spots/1.json
   def update
     @spot = Spot.find(params[:id])
+    @spot.update_attribute(:picture, params[:spot][:picture].read)
 
     respond_to do |format|
-      if @spot.update_attributes(params[:spot])
+      if @spot.save 
         format.html { redirect_to @spot, notice: 'Spot was successfully updated.' }
         format.json { head :no_content }
       else
@@ -80,4 +83,34 @@ class SpotsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def new_backstage
+     @spot = Spot.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @spot }
+    end   
+
+  end
+
+
+  def showing
+      @spot = Spot.find(params[:id])
+      send_data @spot.picture, :type => 'image/png',:disposition => 'inline'
+  end
+
+  def upload 
+     @spot = Spot.find(params[:id])
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @spot }
+    end   
+
+  end
+
+
+
+
+
 end

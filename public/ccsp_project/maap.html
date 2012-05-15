@@ -1,0 +1,237 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>LighTrip</title>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAsYV7UusYC8W-CUCDLpFQYRREFBcOGxpqCCUdK6ZnJW0Tb_Kj_BRWDfzZYc6lwJiQloNiuOKFThoUBQ"
+type="text/javascript"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+<link type="text/css" href="css/ui-lightness/jquery-ui-1.8.20.custom.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.20.custom.min.js"></script>
+<script type="text/javascript">
+
+
+google.load("jquery", "1.3");
+google.load("jqueryui", "1.7");
+
+google.setOnLoadCallback(function() {
+	$('#main').css('-moz-user-select', 'none'); //禁止fx選取文字
+	$('#main').get(0).onselectstart = function(){return false;}; //禁止IE選取文字
+	
+	$("#ruler").draggable();
+	$("#ruler").resizable();
+	
+	// 所有行程
+	$(function() {
+		$( "#mapFrame, #mySchedule" ).sortable({
+			connectWith: ".connectedSortable"
+		}).disableSelection();
+		
+		$(".block").resizable({
+			maxHeight: 300,
+			maxWidth: 150,
+			minHeight: 40,
+			minWidth: 150,
+		});
+		$(".active").click(function() {
+			$(".firstpage").hide();//處裡消掉的東西
+			$(".menu").hide();//嵌入body裡面會不會比較好
+			$("#mySchedule").show();
+			$("#buttonFrame").show();
+		});
+		$("#home").click(function() {
+			$(".firstpage").show();//處裡消掉的東西
+			$(".menu").show();//嵌入body裡面會不會比較好
+			$("#mySchedule").hide();
+			$("#buttonFrame").hide();
+		});
+	});
+});
+
+//lightbox
+function lightbox(content) {
+	
+	$("body").append("<div class='bg'></div>");
+	$("body").append("<div class='lightbox'><div class='framebox'>" + content + "</div></div>");
+	$(".lightbox").fadeIn(1000);
+	$(".framebox").fadeIn(1000);
+	$(".bg").click(function() {
+		$(".lightbox").remove();//處裡消掉的東西
+		$(".bg").remove();//嵌入body裡面會不會比較好
+		
+	});
+	//if ($(".lightbox").attr("style:display") == "none"){
+			//$(".lightbox").remove();}
+}
+
+	$(function() {
+		$( "#slider" ).slider({
+			orientation: "vertical",
+			value:50,
+			min: 0,
+			max: 100,
+			step: 20,
+			slide: function( event, ui ) {
+				$( "#amount" ).val( ui.value );
+			}
+		});
+		$( "#amount" ).val( $( "#slider" ).slider( "value" ) );
+		
+		$( "#slider2" ).slider({
+			orientation: "vertical",
+			value:50,
+			min: 0,
+			max: 100,
+			step: 20,
+			slide: function( event, ui ) {
+				$( "#amoun2t" ).val( ui.value );
+			}
+		});
+		$( "#amount3" ).val( $( "#slider3" ).slider( "value3" ) );
+		$( "#slider3" ).slider({
+			orientation: "vertical",
+			value:50,
+			min: 0,
+			max: 100,
+			step: 20,
+			slide: function( event, ui ) {
+				$( "#amount3" ).val( ui.value );
+			}
+		});
+		$( "#amount3" ).val( $( "#slider3" ).slider( "value3" ) );
+		$( "#slider4" ).slider({
+			orientation: "vertical",
+			value:50,
+			min: 0,
+			max: 100,
+			step: 20,
+			slide: function( event, ui ) {
+				$( "#amount4" ).val( ui.value );
+			}
+		});
+		$( "#amount5" ).val( $( "#slider5" ).slider( "value5" ) );
+		$( "#slider5" ).slider({
+			orientation: "vertical",
+			value:50,
+			min: 0,
+			max: 100,
+			step: 20,
+			slide: function( event, ui ) {
+				$( "#amount5" ).val( ui.value );
+			}
+		});
+		$( "#amount5" ).val( $( "#slider5" ).slider( "value5" ) );
+		
+		
+	});
+</script>
+<link href="_css/main.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<div class="firstpage"></div>
+	<div class="menu">
+		<div class="title"><h1 style="font-size:40px;">LighTrip 來去旅行吧！</h1></div>
+		<div class="map">
+        
+		<div style="position:absolute; top:0; left:0; text-align:right"><img src="taiwan_map.jpg" width="349" height="487" /></div>
+        <div style="position:absolute; top:0; left:0; width: 241px;">
+          <h1 style="color:#000000; text-align:left;">Step 1</h1>
+          <h1 style="color:#000000; text-align:left;">選擇旅遊區塊</h1>
+        </div>
+		</div>
+		<div class="guider">
+  			<h1>LighTrip 介紹</h1>
+            <div>
+            <span>這是一個可以自由產生行程的行程，只要選取想要旅遊的地圖區塊、依照你的喜好調整你的旅遊屬性，確認送出後即可產生一套懶人行程。</span><span>當然，產生後的行程你也可以做個性化調整喔！</span>
+</div>
+        </div>
+		<div class="attri">
+			<h1>Step 2 加權你的旅遊屬性</h1>
+			<div style="width:380px; position:absolute; top:60px; bottom:20px; left:25px;">
+                <div style="width:50px; position:absolute; bottom:0px; height:0px; left:10px;">
+                    <label for="amount">找美食</label>
+                    <input type="hidden" id="amount" style="border:0; color:#f6931f; font-weight:bold; width:50px" />
+                </div>
+                <div style="width:50px; position:absolute; bottom:0px; height:0px; left:80px;">
+                    <label for="amount2">找刺激</label>
+                    <input type="hidden" id="amount2" style="border:0; color:#f6931f; font-weight:bold; width:50px" />
+                </div>
+                <div style="width:50px; position:absolute; bottom:0px; height:0px; left:150px;">
+                    <label for="amount3">找風景</label>
+                    <input type="hidden" id="amount3" style="border:0; color:#f6931f; font-weight:bold; width:50px;" />
+                </div>
+                <div style="width:50px; position:absolute; bottom:0px; height:0px; left:220px;">
+                    <label for="amount4">找悠閒</label>
+                    <input type="hidden" id="amount4" style="border:0; color:#f6931f; font-weight:bold; width:50px;" />
+                </div>
+                <div style="width:50px; position:absolute; bottom:0px; height:0px; left:290px;">
+                    <label for="amount5">找好康</label>
+                    <input type="hidden" id="amount5" style="border:0; color:#f6931f; font-weight:bold; width:50px;" />
+                </div>
+                <div id="slider" style="position:absolute; top:10px; left:30px; width:0px; height:80px"></div>
+                <div id="slider2" style="position:absolute; top:10px; left:100px; width:0px; height:80px"></div>
+                <div id="slider3" style="position:absolute; top:10px; left:170px; width:0px; height:80px"></div>
+                <div id="slider4" style="position:absolute; top:10px; left:240px; width:0px; height:80px"></div>
+                <div id="slider5" style="position:absolute; top:10px; left:310px; width:0px; height:80px"></div>
+			</div>
+        </div>
+        <div class="active">
+            <h1>Step 3 確認送出</h1>
+        </div>
+	</div>
+    
+<div id="main">
+	<ul id="buttonFrame" style="display:none;">
+        <li class="button">分享</li>
+        <li class="button">開啟</li>
+        <li class="button">儲存</li>
+        <l1 id="home" class="button">選單<li>
+    </ul>
+	<ul id='mySchedule' class='connectedSortable' style="display:none;">
+      <h2>我的行程表</h2>
+      <li class='block'><a href=javascript:lightbox('hahaha')>hahaha</a>
+      </li>
+  </ul>
+    <div id="myMap"></div>
+</div>
+
+
+<script type="text/javascript">
+
+//大地圖
+var map = new GMap(document.getElementById("myMap"));
+
+//設定要顯示的控制項
+map.addControl(new GSmallMapControl());
+map.addControl(new GMapTypeControl());
+
+//決定你 Google 地圖的中心點位置和縮放大小
+map.setCenter(new GLatLng(22.996733, 120.212465), 16);
+
+//標記在 Google 地圖上的經緯度
+var point = new GLatLng(22.996733, 120.212465);
+var marker = new GMarker(point);
+map.addOverlay(marker);
+
+//在地圖上放置標點說明
+var text = "台南火車站";
+map.openInfoWindowHtml (point,'<ul id="mapFrame" class="connectedSortable"><li class="block"><a href=javascript:lightbox("'+text+'")>'+text+'</a></li></ul>');
+$('.info').draggable();
+
+
+GEvent.addListener( map,'click', function( overlay, point ){  
+      if(point){  
+       //設定標註座標  
+       //marker.setLatLng(point);  
+       //alert( point.toString() );
+      }
+}); 
+
+</script>
+
+</body>
+</html>

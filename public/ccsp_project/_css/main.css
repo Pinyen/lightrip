@@ -1,0 +1,234 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	font-family: "新微軟正黑體","微軟正黑體", Arial, Helvetica, sans-serif;
+	color:#FFFFFF;
+}
+
+li {
+	list-style-type:none;
+}
+#ruler {
+  background: rgba(153, 153, 153, 0.5);
+  border: 1px solid #999;
+  -moz-border-radius: 2;
+  -webkit-border-radius: 2;
+  -o-border-radius: 2;
+  -ms-border-radius: 2;
+  -khtml-border-radius: 2;
+  border-radius: 2;
+  z-index: 9999;
+  height: 80px;
+  width: 80px;
+  text-align: center;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=10);
+  opacity: 0.1;
+  -moz-transition-property: opacity;
+  -webkit-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+  -moz-transition-duration: 0.7s;
+  -webkit-transition-duration: 0.7s;
+  -o-transition-duration: 0.7s;
+  transition-duration: 0.7s;
+  position:absolute;
+  top:10px;
+  right:10px;
+}
+#ruler:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+#ruler .text {
+  color: #000;
+  font-size: 15px;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7);
+  white-space: nowrap;
+}
+
+a {
+	color:#FFF;
+}
+
+h2 {
+	color:#003;
+	margin:5px;
+	text-align:center;
+}
+#main {
+	margin:0 auto;
+	width:1000px;
+	height:560px;
+	text-align:center;
+}
+#mapFrame {
+	float:right;
+	width:100%;
+	height:50px;
+}
+#myMap {
+	float:right;
+	background-color:#dedede;
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:1;
+}
+
+#mySchedule {
+	float:left;
+	border:3px solid #003;
+	border-radius:5px;
+	position:absolute;
+	top:70px;
+	left:50px;
+	height:450px;
+	width:150px;
+	z-index:2;
+}
+.block {
+	width:150px;
+	height:40px;
+	background-color:#003;
+	margin:5px auto;
+	line-height:40px;
+	font-size:13px;
+	text-align:center;
+	cursor:move;
+	z-index:3;
+}
+#buttonFrame {
+	position:absolute;
+	top:540px;
+	left:50px;
+	width:150px;
+	z-index:2;
+}
+.button {
+	float:left;
+	width:22%;
+	line-height:16px;
+	border-radius:3px;
+	display:inline;
+	background-color:#003;
+	margin-right:3%;
+	text-align:center;
+	cursor:pointer;
+	z-index:3;
+	text-align:center;
+	font-size:13px;
+}
+.bg {
+	width:100%;
+	height:100%;
+	background-color:#000000;
+	position:absolute;
+	top:0;
+	left:0;
+	opacity:0.7;
+	z-index:4;
+}
+.framebox {
+	display:none;
+	z-index:5;
+	width:100%;
+	height:100%;
+	background-color:#FFFFFF;
+}
+.lightbox {
+	display:none;
+	background-color:#000;
+	width:700px;
+	height:450px;
+	position:absolute;
+	top: 10%;
+	left: 20%;
+	padding-top:20px;
+	padding-left:20px;
+	padding-right:20px;
+	padding-bottom:20px;
+	text-align:center;
+	border-radius:15px;
+	z-index:6;
+}
+
+.firstpage {
+	background-color:#FFFFFF;
+	opacity:.8;
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:1100;	
+}
+
+.menu {
+	position:absolute;
+	top:5%;
+	left:20%;
+	width:800px;
+	height:600px;
+	position:absolute;
+	z-index:1111;
+	border-radius:5px;
+	padding:10px;
+}
+.menu h1	{
+	font-size:30px;
+	line-height:10px;
+	text-align:center;
+}
+.menu div {
+	padding:7px;
+	border-radius:5px;
+}
+
+.title {
+	position:absolute;
+	top:0px;
+	left:0px;
+	right:0;
+	height:60px;
+	background-color:#3399FF;
+	color:#FFFFFF;
+}
+.map {
+	position:absolute;
+	top:90px;
+	left:0px;
+	height: 480px;
+	width: 360px;
+	background-color:#FFFFFF;
+	border: 5px #999999 solid;
+}
+
+.guider {
+	position:absolute;
+	top:90px;
+	left:400px;
+	height:190px;
+	right:0;
+	background:#999999;
+	background-color: #66FF66;
+}
+.attri {
+	position:absolute;
+	top:310px;
+	right:0;
+	left:400px;
+	height:190px;
+	background-color:#FFCC33;
+}
+.active {
+	position:absolute;
+	top:530px;
+	right:0;
+	left:400px;
+	height:50px;
+	background:#6C6;
+	background-color: #FF3366;
+}
+ first page end ->
