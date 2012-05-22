@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -6,10 +7,6 @@
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAsYV7UusYC8W-CUCDLpFQYRREFBcOGxpqCCUdK6ZnJW0Tb_Kj_BRWDfzZYc6lwJiQloNiuOKFThoUBQ"
 type="text/javascript"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-<link type="text/css" href="ccsp_project/css/ui-lightness/jquery-ui-1.8.20.custom.css" rel="stylesheet" />
-<script type="text/javascript" src="ccsp_project/js/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="ccsp_project/js/jquery-ui-1.8.20.custom.min.js"></script>
 <script type="text/javascript">
 
 
@@ -36,13 +33,11 @@ google.setOnLoadCallback(function() {
 			minWidth: 150,
 		});
 		$(".active").click(function() {
-			$("form").submit();
-
-			//$(".firstpage").hide();//處裡消掉的東西
-			//$(".menu").hide();//嵌入body裡面會不會比較好
-			//$("#mySchedule").show();
-			//$("#buttonFrame").show();
-		});
+		/*	$(".firstpage").hide();//處裡消掉的東西
+			$(".menu").hide();//嵌入body裡面會不會比較好
+			$("#mySchedule").show();
+			$("#buttonFrame").show();
+		*/});
 		$("#home").click(function() {
 			$(".firstpage").show();//處裡消掉的東西
 			$(".menu").show();//嵌入body裡面會不會比較好
@@ -129,16 +124,16 @@ function lightbox(content) {
 		
 	});
 </script>
-<link href="ccsp_project/_css/main.css" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body>
-	<div class="firstpage" style="display:none"></div>
-	<div class="menu" style="display:none">
+	<div class="firstpage" style="display:none;"></div>
+	<div class="menu" style="display:none;">
 		<div class="title"><h1 style="font-size:40px;">LighTrip 來去旅行吧！</h1></div>
 		<div class="map">
         
-		<div style="position:absolute; top:0; left:0; text-align:right"><img src="ccsp_project/taiwan_map.jpg" width="349" height="487" /></div>
+		<div style="position:absolute; top:0; left:0; text-align:right"><img src="assets/taiwan_map.jpg" width="349" height="487" /></div>
         <div style="position:absolute; top:0; left:0; width: 241px;">
           <h1 style="color:#000000; text-align:left;">Step 1</h1>
           <h1 style="color:#000000; text-align:left;">選擇旅遊區塊</h1>
@@ -150,13 +145,12 @@ function lightbox(content) {
             <span>這是一個可以自由產生行程的行程，只要選取想要旅遊的地圖區塊、依照你的喜好調整你的旅遊屬性，確認送出後即可產生一套懶人行程。</span><span>當然，產生後的行程你也可以做個性化調整喔！</span>
 </div>
         </div>
-		<form accept-charset="UTF-8" action="/" class="new_attr" id="new_attr" method="post">
 		<div class="attri">
 			<h1>Step 2 加權你的旅遊屬性</h1>
 			<div style="width:380px; position:absolute; top:60px; bottom:20px; left:25px;">
                 <div style="width:50px; position:absolute; bottom:0px; height:0px; left:10px;">
                     <label for="amount">找美食</label>
-                    <input type="hidden" name="attr1" id="amount" style="border:0; color:#f6931f; font-weight:bold; width:50px" />
+                    <input type="hidden" id="amount" style="border:0; color:#f6931f; font-weight:bold; width:50px" />
                 </div>
                 <div style="width:50px; position:absolute; bottom:0px; height:0px; left:80px;">
                     <label for="amount2">找刺激</label>
@@ -184,17 +178,16 @@ function lightbox(content) {
         <div class="active">
             <h1>Step 3 確認送出</h1>
         </div>
-    </form>
 	</div>
-   
+    
 <div id="main">
-	<ul id="buttonFrame" >
+	<ul id="buttonFrame">
         <li class="button">分享</li>
         <li class="button">開啟</li>
         <li class="button">儲存</li>
         <l1 id="home" class="button">選單<li>
     </ul>
-	<ul id='mySchedule' class='connectedSortable' >
+	<ul id='mySchedule' class='connectedSortable'>
       <h2>我的行程表</h2>
       <li class='block'><a href=javascript:lightbox('hahaha')>hahaha</a>
       </li>
@@ -204,9 +197,6 @@ function lightbox(content) {
 
 
 <script type="text/javascript">
-
-
-
 
 //大地圖
 var map = new GMap(document.getElementById("myMap"));
@@ -241,7 +231,3 @@ GEvent.addListener( map,'click', function( overlay, point ){
 
 </body>
 </html>
-
-
-
-
