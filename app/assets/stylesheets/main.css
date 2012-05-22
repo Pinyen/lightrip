@@ -1,24 +1,13 @@
 @charset "utf-8";
 /* CSS Document */
-body {
-	font-family: "新微軟正黑體","微軟正黑體", Arial, Helvetica, sans-serif;
-	color:#FFFFFF;
-}
-
-li {
-	list-style-type:none;
-}
-
-a {
-	color:#000;
-	text-decoration:none;
-}
 
 h2 {
 	margin:5px;
 	text-align:center;
 }
 #main {
+	font-family: "新微軟正黑體","微軟正黑體", Arial, Helvetica, sans-serif;
+	color:#FFFFFF;
 	margin:0 auto;
 	width:1000px;
 	height:560px;
