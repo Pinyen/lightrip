@@ -1,16 +1,16 @@
 @charset "utf-8";
 /* CSS Document */
 
-li {
+#main li {
 	list-style-type:none;
 }
 
-a {
+#main a {
 	color:#000;
 	text-decoration:none;
 }
 
-h2 {
+#main h2 {
 	margin:5px;
 	text-align:center;
 }
