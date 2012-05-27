@@ -1,8 +1,12 @@
+<%= javascript_include_tag "import_map.js" %>
+<%= javascript_include_tag "change_trans.js" %>
+<%= javascript_include_tag "jquery.tinyMap-2.0.1.js" %>
+<%= javascript_include_tag "jquery.tinyMap-2.0.1.min.js" %>
 <div id="main">
   <div class="firstpage"></div>
     <div id="drag">
     <div class="menu">
-		<h2 style="color:#fff;">LightTrip來去旅遊吧！</h2>
+		<h2 style="color:#fff;">LighTrip來去旅遊吧！</h2>
 		<div class="map">
         
 		<div style="position:absolute; top:50px; left:70px; text-align:right;"><%= image_tag("taiwan_map.gif")%></div>
@@ -53,8 +57,8 @@
 	</div>
     
 
-<div id="scheduleFrame">
-    <h2 style="color:#fff;">LightTrip</h2>
+<div id="scheduleFrame" style="display:none;">
+    <h2 style="color:#fff;">LighTrip</h2>
     <div style="position:absolute; left:-70px; top:0px; width:30px;">
       <ul id="buttonFrame">
         <li class="button">Open</li>
@@ -66,12 +70,6 @@
     
     <div style="position:absolute; left:20px; top:40px; height:400px;">
     <ul id='mySchedule' class='connectedSortable'>
-        <li class='block'>
-        <a href=javascript:lightbox('青青草原')>青青草原</a>
-        </li>
-        <li class='block'>
-        <a href=javascript:lightbox('埔里酒廠')>埔里酒廠</a>
-        </li>
       </ul>
     </div>
 
@@ -88,21 +86,37 @@
 
 
 <script type="text/javascript">
-
-  var map;
-  var infowindow = new google.maps.InfoWindow();
+  var pos = new google.maps.LatLng(23.996733, 120.212465);
   var myOptions = {
-    zoom: 14,
+    zoom: 8,
+    center: pos,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
-  map = new google.maps.Map(document.getElementById("myMap"), myOptions);
-  var pos = new google.maps.LatLng(22.996733, 120.212465);
-  var text = "台南火車站";
-  map.setCenter(pos);
-  map.setCenter(pos);
-infowindow.setContent('<div><ul id="mapFrame" class="connectedSortable"><li class="block"><a href=javascript:lightbox("'+text+'")>'+text+'</a></li></ul></div>');
-infowindow.setPosition(pos);
-infowindow.open(map);
+  var map = new google.maps.Map(document.getElementById("myMap"), myOptions);
+  <% @spots.each do |spot|%>
+ 
+  var spotName = '<%= spot.name %>';
+  var text = '<%= spot.info %>';
+  var address = '<%= spot.address %>';
+  var lat1 = <%= spot.lat %>;
+  var log1 = <%= spot.lon %>;
+  var pos = new google.maps.LatLng(lat1, log1);
+  var marker = new google.maps.Marker({
+      position: pos,
+      animation: google.maps.Animation.DROP,
+      title: spotName});
+  marker.setMap(map);
+  var counter= 0;
+  /*while ($("li.block a").size()>counter){
+    var scheduleName = $("li.block a").eq(counter).html();
+    修改成可以顯示schedule上的特殊icon
+    if (spotName == scheduleName){
+        marker.setIcon("http://maps.google.com/mapfiles/markerA.png");
+    }
+    counter++;
+  }    */ 
+
+  <% end %>
 </script>
 
 

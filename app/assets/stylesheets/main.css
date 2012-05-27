@@ -50,8 +50,8 @@
 	border-bottom-right-radius:2px;
 	border-top-right-radius:2px;
 	position:absolute;
-	height:470px;
-	width:190px;
+	height:550px;
+	width:220px;
 	z-index:2;
 	/*text-shadow: 0 1px 1px rgba(255,255,255,.7);*/
 	-moz-box-shadow:4px 4px 12px -2px rgba(20%,20%,40%,0.5);
@@ -62,9 +62,11 @@
 	float:left;
 	margin: 0px;
 	padding: 0px;
-	height:100%;
-	width:100%;
+	height:85%;
+	width:190px;
 	z-index:3;
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
 .block {
 	width:150px;
@@ -150,6 +152,10 @@
 
 .firstpage {
 	position:absolute;
+	background-color: #000;
+	opacity: .3;
+	-moz-opacity: 0.3;
+	filter:alpha(opacity=.3);
 	top:0;
 	left:0;
 	width:100%;
@@ -164,8 +170,7 @@
 	height:450px;
 	position:absolute;
 	z-index:1111;
-	border-top-right-radius:2px;
-	border-bottom-right-radius:2px;
+	border-radius:2px;
 	padding:10px;
 	/*text-shadow: 0 1px 1px rgba(255,255,255,.7);*/
 	-moz-box-shadow:4px 4px 12px -2px rgba(20%,20%,40%,0.5);
@@ -225,4 +230,28 @@
 	height:50px;
 	background-color: #CCC;
 	width: 290px;
+}
+
+
+
+ul#mySchedule li.spotinfo
+{
+
+	height: 104px;
+	width: 130px;
+	padding: 10px;
+	background: gray;  
+	color: white;
+	text-align: center;
+	border-radius: 5px;
+	line-height: 1.6em;
+
+}
+
+ul#mySchedule li.spotinfo img
+{
+	border-radius: 5px;
+	height: 60%;
+	width: 90%;
+
 }

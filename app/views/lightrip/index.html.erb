@@ -1,2 +1,102 @@
-<h1>Lightrip#index</h1>
-<p>Find me in app/views/lightrip/index.html.erb</p>
+test_box
+
+
+<li id="box">
+
+  <b>台灣大學</b><br>
+  <img src="http://image.sciencenet.cn/olddata/kexue.com.cn/upload/blog/images/2008/12/2008129115724376.JPG" height="60%" width="90%"><br>
+
+  <div class="travel_time_space">
+    <div class="travel_time_content">3 hr  to  4 hr</div>
+  </div>
+  <!--<div class="traffic_time_space">
+  driving 1.5 hr <br>to next spot
+  </div><br>-->
+</li>
+
+<script>
+
+$(".travel_time_content").click(function(){
+	//alert("click!!");
+	$(this).parentsUntil("li").append("<input class='input_travel_time' value='?? hr' size='2'>");
+	$(this).css("display","none");
+	 $(".input_travel_time").keypress(function(e){
+      if(e.keyCode == 13){
+        $(this).blur();
+        $(this).css("display","none");
+       	//$(this).parentsUntil("li").after($(this).val());
+        var playing_time = $(this).val()
+        if (playing_time.slice(-2) == 'hr'){
+          playing_time = playing_time.slice(0,-2);
+        }
+        if (playing_time.slice(-4) == 'hour'){
+          playing_time = playing_time.slice(0,-4);
+        }
+
+
+        $(this).after("<div class='travel_time_self'>" + playing_time + " hr</div>");
+
+
+
+
+      }
+    }); 
+
+})
+
+        /**/
+        $(".travel_time_self").dblclick(function(){
+            //alert("click!!");
+            $(this).parentsUntil("li").append("<input class='input_travel_time' value='?? hr' size='2'>");
+            $(this).css("display","none");
+             $(".input_travel_time").keypress(function(e){
+                if(e.keyCode == 13){
+                  $(this).blur();
+                  $(this).css("display","none");
+                  //$(this).parentsUntil("li").after($(this).val());
+                  var playing_time = $(this).val()
+                  if (playing_time.slice(-2) == 'hr'){
+                    playing_time = playing_time.slice(0,-2);
+                  }
+                  if (playing_time.slice(-4) == 'hour'){
+                    playing_time = playing_time.slice(0,-4);
+                  }
+
+
+                  $(this).after("<div class='travel_time_self'>" + playing_time + " hr</div>");
+                }
+              }); 
+
+})
+
+
+
+</script>
+
+
+
+
+
+<style>
+#box
+{
+
+	height: 120px;
+	width: 150px;
+	padding: 10px;
+	background: gray;  
+	color: white;
+	text-align: center;
+	border-radius: 5px;
+	line-height: 1.6em;
+
+}
+
+img
+{
+	border-radius: 5px;
+	height: 60%;
+	width: 90%;
+
+}
+</style>

@@ -1,12 +1,12 @@
 LightripD1::Application.routes.draw do
   
-  #get "/spots/new_backstage" => "spots#new_backstage"
-  #get "/img/:id" => "spots#showing"
+  get "/spots/new_backstage" => "spots#new_backstage"
+  get "/img/:id" => "spots#showing"
   resources :spots
-
+  get "/step3" => "home#step3"
 
   #get "lightrip/index"
-
+  get "/lightrip" => "lightrip#index"
   #post "/" => "home#smart"
   get "home/index"
   #post "/attr" => "home#attr"
