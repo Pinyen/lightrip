@@ -25,14 +25,6 @@ google.setOnLoadCallback(function() {
 		$( "#mapFrame, #mySchedule" ).sortable({
 			connectWith: ".connectedSortable",
 			cancel: ".ui-state-disabled",
-			start: function(event, ui) {
-			//alert("activate!!")
-			//alert('class:' + ui.item.prev().attr('class'));
-			//ui.item.next().remove();
-			//alert('hello');
-			//console.log(ui.item.next().html());
-
-			},
 			change: function(event, ui) {
 			//alert("activate!!")
 			if(temp_counter == 0){
@@ -48,14 +40,7 @@ google.setOnLoadCallback(function() {
 			};
 			temp_counter = 1;
 
-
-			//alert('class:' + ui.item.prev().attr('class'));
-			//ui.item.next().remove();
-			//alert('hello');
-			//console.log(ui.item.next().html());
-
 			},
-
 
 			stop: function(event, ui) {
 			//alert("stop!!");
@@ -74,6 +59,14 @@ google.setOnLoadCallback(function() {
 			//ui.item.append('<li class="trans ui-state-disabled" id="trans_' + data[i]['id'] + '">');
 			//ui.item.prepend('<li class="trans ui-state-disabled" id="trans_' + data[i]['id'] + '">');
 			//ui.item.append('<li class="trans ui-state-disabled" id="trans_' + data[i]['id'] + '">');
+			if ( $('ul#mySchedule li:last').attr('class') == "trans ui-state-disabled" ) {
+				$('ul#mySchedule li:last').remove();
+			};
+			
+			if ( $('ul#mySchedule li:first').attr('class') == "trans ui-state-disabled" ) {
+				$('ul#mySchedule li:first').remove();
+			};
+
 			}
 		}).disableSelection();
 		
@@ -195,8 +188,8 @@ function lightbox(content) {
 				 attr5: $( "#amount5" ).val()
 				},
 				//$( "#amount" ).html(),
-				//url: "http://localhost:3000/step3",
-				url: "http://lightrip-cytms.herokuapp.com/step3",
+				url: "http://localhost:3000/step3",
+				//url: "http://lightrip-cytms.herokuapp.com/step3",
 				datatype: 'json',
 				success: function(data, textSatus){
 					//alert("ajax success");
@@ -208,7 +201,7 @@ function lightbox(content) {
 					//$('li.block:odd').append("<a href=javascript:lightbox('hahaha')>"+data['test']+"</a>");
 					for ( var i = 0; i < data.length ; i++) {
 						$('ul#mySchedule').append('<li class="block spotinfo" id="' + data[i]['id'] + '" name="' + data[i]['name'] + '" zoom="' + data[i]['zoom'] + '" lat="' + data[i]['lat'] + '" lon="' + data[i]['lon'] + '" ><a href=javascript:lightbox("' + data[i]['address'] + '")>' + data[i]['name'] + '</a></li>');
-						$('ul#mySchedule').append('<li class="trans ui-state-disabled" id="trans_' + data[i]['id'] + '">default<li>');
+						$('ul#mySchedule').append('<li class="trans ui-state-disabled" id="trans_' + data[i]['id'] + '">default</li>');
 						$('li#' + data[i]['id'] ).append('<img src="/img/' + data[i]['id'] + '" height="60%" width="90%"><div class="travel_time_space"><div class="travel_time_content">4hr</div></div>');
 						
 						//$('li.block').appendTo('#mySchedule');
