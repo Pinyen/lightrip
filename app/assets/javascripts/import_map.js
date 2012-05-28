@@ -19,11 +19,62 @@ google.load("jqueryui", "1.7");
 google.setOnLoadCallback(function() {
 	$('#main').css('-moz-user-select', 'none'); //禁止fx選取文字
 	$('#main').get(0).onselectstart = function(){return false;}; //禁止IE選取文字
-	
+	var temp_counter = 0;
 	// 所有行程
 	$(function() {
 		$( "#mapFrame, #mySchedule" ).sortable({
-			connectWith: ".connectedSortable"
+			connectWith: ".connectedSortable",
+			cancel: ".ui-state-disabled",
+			start: function(event, ui) {
+			//alert("activate!!")
+			//alert('class:' + ui.item.prev().attr('class'));
+			//ui.item.next().remove();
+			//alert('hello');
+			//console.log(ui.item.next().html());
+
+			},
+			change: function(event, ui) {
+			//alert("activate!!")
+			if(temp_counter == 0){
+				console.log("next html:" + ui.item.next().html());
+				if (ui.item.prev().attr('class') == "trans ui-state-disabled" ) {
+				ui.item.prev().remove();
+				};
+
+				if (ui.item.next().attr('class') == "trans ui-state-disabled" ) {
+					ui.item.next().remove();
+				};
+				$('<li class="trans ui-state-disabled">middle</li>').insertAfter(ui.item);
+			};
+			temp_counter = 1;
+
+
+			//alert('class:' + ui.item.prev().attr('class'));
+			//ui.item.next().remove();
+			//alert('hello');
+			//console.log(ui.item.next().html());
+
+			},
+
+
+			stop: function(event, ui) {
+			//alert("stop!!");
+			temp_counter = 0;	
+			//alert('class:' + ui.item.prev().attr('class'));
+			if (ui.item.prev().attr('class') == "trans ui-state-disabled" ) {
+				ui.item.prev().remove();
+			};
+
+			if (ui.item.next().attr('class') == "trans ui-state-disabled" ) {
+				ui.item.next().remove();
+			};
+			
+			$('<li class="trans ui-state-disabled">after</li>').insertAfter(ui.item);
+			$('<li class="trans ui-state-disabled">before</li>').insertBefore(ui.item);
+			//ui.item.append('<li class="trans ui-state-disabled" id="trans_' + data[i]['id'] + '">');
+			//ui.item.prepend('<li class="trans ui-state-disabled" id="trans_' + data[i]['id'] + '">');
+			//ui.item.append('<li class="trans ui-state-disabled" id="trans_' + data[i]['id'] + '">');
+			}
 		}).disableSelection();
 		
 		/*$(".block").resizable({
@@ -130,9 +181,10 @@ function lightbox(content) {
 (function($){
 	$(document).ready(function(){
 		$('.active').click(function(){
+			$(".firstpage").hide();
 			$(".menu").hide();
 			$("#scheduleFrame").show();
-
+			$("#buttonFrame").show();
 			//alert("Handler for .click() called.");
 			$.ajax({
 				type: 'GET',
@@ -147,15 +199,17 @@ function lightbox(content) {
 				datatype: 'json',
 				success: function(data, textSatus){
 					//alert("ajax success");
-					$(".firstpage").hide();//處裡消掉的東西
-					$(".menu").hide();//嵌入body裡面會不會比較好
-					$("#scheduleFrame").show();
-					$("#buttonFrame").show();
+					//$(".firstpage").hide();//處裡消掉的東西
+					//$(".menu").hide();//嵌入body裡面會不會比較好
+					//$("#scheduleFrame").show();
+					//$("#buttonFrame").show();
 					//$("li.block:even").append()
 					//$('li.block:odd').append("<a href=javascript:lightbox('hahaha')>"+data['test']+"</a>");
 					for ( var i = 0; i < data.length ; i++) {
 						$('ul#mySchedule').append('<li class="block spotinfo" id="' + data[i]['id'] + '" name="' + data[i]['name'] + '" zoom="' + data[i]['zoom'] + '" lat="' + data[i]['lat'] + '" lon="' + data[i]['lon'] + '" ><a href=javascript:lightbox("' + data[i]['address'] + '")>' + data[i]['name'] + '</a></li>');
+						$('ul#mySchedule').append('<li class="trans ui-state-disabled" id="trans_' + data[i]['id'] + '">default</li>');
 						$('li#' + data[i]['id'] ).append('<img src="/img/' + data[i]['id'] + '" height="60%" width="90%"><div class="travel_time_space"><div class="travel_time_content">4hr</div></div>');
+						
 						//$('li.block').appendTo('#mySchedule');
 					/*$('li.block:odd').append("<a href=javascript:lightbox('hahaha')>"+data[0]['address']+"</a>");*/
 					//data[i]['id'] != []

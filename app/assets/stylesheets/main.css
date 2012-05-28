@@ -62,10 +62,10 @@
 	float:left;
 	margin: 0px;
 	padding: 0px;
-	height:85%;
+	height:420px;
 	width:190px;
 	z-index:3;
-	overflow-y: scroll;
+	overflow-y: auto;
 	overflow-x: hidden;
 }
 .block {
@@ -236,15 +236,16 @@
 
 ul#mySchedule li.spotinfo
 {
-
 	height: 104px;
 	width: 130px;
+	margin: 0px 0px 5px 0px;
 	padding: 10px;
 	background: gray;  
 	color: white;
 	text-align: center;
-	border-radius: 5px;
+	border-radius: 3px;
 	line-height: 1.6em;
+	border: 2px solid gray;
 
 }
 
@@ -254,4 +255,17 @@ ul#mySchedule li.spotinfo img
 	height: 60%;
 	width: 90%;
 
+}
+
+ul#mySchedule li.trans{
+	height: 20px;
+	width: 130px;
+	padding: 10px;
+	margin: 0px 0px 5px 0px;
+	background: gray;  
+	color: white;
+	text-align: center;
+	border-radius: 3px;
+	line-height: 1.6em;
+	border: 2px solid gray;
 }
