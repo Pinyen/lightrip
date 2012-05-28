@@ -2,7 +2,7 @@ class CreateSpots < ActiveRecord::Migration
   def change
     create_table :spots do |t|
       t.string :name
-      t.address :name
+      #t.address :name
       t.string :lat
       t.string :lon
       t.text :info
