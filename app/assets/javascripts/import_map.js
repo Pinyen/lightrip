@@ -195,7 +195,8 @@ function lightbox(content) {
 				 attr5: $( "#amount5" ).val()
 				},
 				//$( "#amount" ).html(),
-				url: "http://localhost:3000/step3",
+				//url: "http://localhost:3000/step3",
+				url: "http://lightrip-cytms.herokuapp.com/step3",
 				datatype: 'json',
 				success: function(data, textSatus){
 					//alert("ajax success");
@@ -207,7 +208,7 @@ function lightbox(content) {
 					//$('li.block:odd').append("<a href=javascript:lightbox('hahaha')>"+data['test']+"</a>");
 					for ( var i = 0; i < data.length ; i++) {
 						$('ul#mySchedule').append('<li class="block spotinfo" id="' + data[i]['id'] + '" name="' + data[i]['name'] + '" zoom="' + data[i]['zoom'] + '" lat="' + data[i]['lat'] + '" lon="' + data[i]['lon'] + '" ><a href=javascript:lightbox("' + data[i]['address'] + '")>' + data[i]['name'] + '</a></li>');
-						$('ul#mySchedule').append('<li class="trans ui-state-disabled" id="trans_' + data[i]['id'] + '">default</li>');
+						$('ul#mySchedule').append('<li class="trans ui-state-disabled" id="trans_' + data[i]['id'] + '">default<li>');
 						$('li#' + data[i]['id'] ).append('<img src="/img/' + data[i]['id'] + '" height="60%" width="90%"><div class="travel_time_space"><div class="travel_time_content">4hr</div></div>');
 						
 						//$('li.block').appendTo('#mySchedule');
