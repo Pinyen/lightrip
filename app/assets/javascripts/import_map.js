@@ -195,8 +195,8 @@ function lightbox(content) {
 				 attr5: $( "#amount5" ).val()
 				},
 				//$( "#amount" ).html(),
-				//url: "http://localhost:3000/step3",
-				url: "http://lightrip-cytms.herokuapp.com/step3",
+				url: "http://localhost:3000/step3",
+				//url: "http://lightrip-cytms.herokuapp.com/step3",
 				datatype: 'json',
 				success: function(data, textSatus){
 					//alert("ajax success");
