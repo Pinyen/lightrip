@@ -15,7 +15,8 @@
     <th>Attr3</th>
     <th>Attr4</th>
     <th>Attr5</th>
-    <th>pic</th>
+    <th>Min</th>
+    <th>Max</th>
     <th>Picture</th>
     <th></th>
     <th></th>
@@ -38,7 +39,8 @@
     <td><%= spot.attr3 %></td>
     <td><%= spot.attr4 %></td>
     <td><%= spot.attr5 %></td>
-    <td></td>
+    <td><%= spot.MinTime%></td>
+    <td><%= spot.MaxTime%></td>
     <td class="picture"> <% string_path = '/img/' + spot.id.to_s %> 
          <%= image_tag(string_path, :size => "50x50")%> </td>
     <td><%= link_to 'Show', spot %></td>

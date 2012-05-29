@@ -1,7 +1,9 @@
+<%= javascript_include_tag "google_direction_api.js" %>
 <%= javascript_include_tag "import_map.js" %>
 <%= javascript_include_tag "change_trans.js" %>
 <%= javascript_include_tag "jquery.tinyMap-2.0.1.js" %>
 <%= javascript_include_tag "jquery.tinyMap-2.0.1.min.js" %>
+<!--<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>-->
 <div id="main">
   <div class="firstpage"></div>
     <div id="drag">
@@ -59,6 +61,11 @@
 
 <div id="scheduleFrame" style="display:none;">
     <h2 style="color:#fff;">LighTrip</h2>
+    
+    <div id="traffic_info_temp">a</div>
+    <!--add for memorizing the traffic info  style="display:none;"-->
+    <div id="traffic_info_temp2">1</div>
+
     <div style="position:absolute; left:-70px; top:0px; width:30px;">
       <ul id="buttonFrame">
         <li class="button">Open</li>

@@ -199,15 +199,29 @@ function lightbox(content) {
 					//$("#buttonFrame").show();
 					//$("li.block:even").append()
 					//$('li.block:odd').append("<a href=javascript:lightbox('hahaha')>"+data['test']+"</a>");
+					$('ul#mySchedule').append("<p><div onclick='calculateDistances();'>Calculate distances_driving(default) 打開console log</div></p>");
+					var origin1 = "台北市羅斯福路四段一號";
+					var destinationA = "台北火車站";
+
+					var return_value = 0;
+					return_value = calculateDistances(origin1,destinationA,data);
+					//console.log("return:");
+					//console.log(return_value);
 					for ( var i = 0; i < data.length ; i++) {
 						$('ul#mySchedule').append('<li class="block spotinfo" id="' + data[i]['id'] + '" name="' + data[i]['name'] + '" zoom="' + data[i]['zoom'] + '" lat="' + data[i]['lat'] + '" lon="' + data[i]['lon'] + '" ><a href=javascript:lightbox("' + data[i]['address'] + '")>' + data[i]['name'] + '</a></li>');
-						$('ul#mySchedule').append('<li class="trans ui-state-disabled" id="trans_' + data[i]['id'] + '">default</li>');
+
+
+
+						if( i != (data.length - 1)){
+							return_value = 0;
+								//$('ul#mySchedule').append('<li class="trans ui-state-disabled" id="trans_' + data[i]['id'] + '"><div id="outputDiv_'+origin1+'_'+destinationA+'">default</div></li>');
+								$('ul#mySchedule').append('<li class="trans ui-state-disabled" id="trans_' + data[i]['id'] + '"><div id="outputDiv">'+ $('#traffic_info_temp').html() +'</div></li>');
+						}
 						$('li#' + data[i]['id'] ).append('<img src="/img/' + data[i]['id'] + '" height="60%" width="90%"><div class="travel_time_space"><div class="travel_time_content">4hr</div></div>');
-						
+						//console.log($('#traffic_info_temp2').html() == 1);
 						//$('li.block').appendTo('#mySchedule');
 					/*$('li.block:odd').append("<a href=javascript:lightbox('hahaha')>"+data[0]['address']+"</a>");*/
-					//data[i]['id'] != []
-					console.log(data);
+					//console.log(data);
 					}
 
 				}

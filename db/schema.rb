@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120514100842) do
+ActiveRecord::Schema.define(:version => 20120529040326) do
 
   create_table "spots", :force => true do |t|
     t.string   "name"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(:version => 20120514100842) do
     t.decimal  "attr3"
     t.decimal  "attr4"
     t.decimal  "attr5"
+    t.decimal  "MinTime"
+    t.decimal  "MaxTime"
   end
 
 end
