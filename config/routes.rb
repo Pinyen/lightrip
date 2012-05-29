@@ -1,5 +1,6 @@
 LightripD1::Application.routes.draw do
-  
+  get '/login' => 'home#login'
+  get '/' => 'home#index', :as => :home
   get "/spots/new_backstage" => "spots#new_backstage"
   get "/img/:id" => "spots#showing"
   resources :spots

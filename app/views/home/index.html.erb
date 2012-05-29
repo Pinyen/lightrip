@@ -6,60 +6,63 @@
 <!--<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>-->
 <div id="main">
   <div class="firstpage"></div>
-    <div id="drag">
-    <div class="menu">
-		<h2 style="color:#fff;">LighTrip來去旅遊吧！</h2>
-		<div class="map">
-        
-		<div style="position:absolute; top:50px; left:70px; text-align:right;"><%= image_tag("taiwan_map.gif")%></div>
+  <div class="menu">
+	  <h2 style="color:#fff;">LighTrip來去旅遊吧！</h2>
+	  <div class="map">        
+	    <div style="position:absolute; top:50px; left:70px; text-align:right;"><%= image_tag("taiwan_map.gif")%></div>
+       <div style="position:absolute; top:0; left:0; width: 241px;"><h1>Step 1 選擇旅遊區塊</h1></div>
+	  </div>
 
-    <div style="position:absolute; top:0; left:0; width: 241px;">
-      <h1>Step 1 選擇旅遊區塊</h1>
+	  <div class="guider">
+      <% if @access_token %>
+        <h1>Step 2 <span style="font-size:20px;">1/2 </span> FB登入</h1>
+        <div style="position:absolute; left:85px; top:45px;">
+          <img src="https://graph.facebook.com/me/picture?access_token=<%= @access_token %>" />
+        </div>
+        <div style="position:absolute; left:145px; top:60px;">
+          <%= @me['name'] %>
+        </div>
+      <% else %>
+        <p><%= link_to "Click me to login!", login_path %></br>當然你也可以選擇忽略該步驟！</p>
+      <% end %>
     </div>
 
-		</div>
-		<div class="guider">
-  			<h1>Step 2 <span style="font-size:20px;">1/2 </span> FB登入</h1>
-    </div>
-		<form accept-charset="UTF-8" action="/" class="new_attr" id="new_attr" method="post">
-		<div class="attri">
-			<h1>Step 2 加權你的旅遊屬性</h1>
-			<div style="width:300px; position:absolute; top:40px; bottom:20px; left:0px;">
-                <div style="width:50px; position:absolute; bottom:10px; height:0px; left:10px;">
-                    <label for="amount">找美食</label>
-                    <input type="hidden" id="amount" style="border:0; color:#f6931f; font-weight:bold; width:50px" />
-                </div>
-                <div style="width:50px; position:absolute; bottom:10px; height:0px; left:65px;">
-                    <label for="amount2">找刺激</label>
-                    <input type="hidden" id="amount2" style="border:0; color:#f6931f; font-weight:bold; width:50px" />
-                </div>
-                <div style="width:50px; position:absolute; bottom:10px; height:0px; left:120px;">
-                  <label for="amount3">找風景</label>
-                    <input type="hidden" id="amount3" style="border:0; color:#f6931f; font-weight:bold; width:50px;" />
-              </div>
-                <div style="width:50px; position:absolute; bottom:10px; height:0px; left:175px;">
-                    <label for="amount4">找悠閒</label>
-                    <input type="hidden" id="amount4" style="border:0; color:#f6931f; font-weight:bold; width:50px;" />
-                </div>
-                <div style="width:50px; position:absolute; bottom:10px; height:0px; left:230px;">
-                    <label for="amount5">找好康</label>
-                    <input type="hidden" id="amount5" style="border:0; color:#f6931f; font-weight:bold; width:50px;" />
-                </div>
-                <div id="slider" style="position:absolute; top:10px; left:30px; width:10px; height:80px"></div>
-                <div id="slider2" style="position:absolute; top:10px; left:85px; width:10px; height:80px"></div>
-                <div id="slider3" style="position:absolute; top:10px; left:140px; width:10px; height:80px"></div>
-                <div id="slider4" style="position:absolute; top:10px; left:195px; width:10px; height:80px"></div>
-                <div id="slider5" style="position:absolute; top:10px; left:250px; width:10px; height:80px"></div>
-			</div>
-        </div>
-        <div class="active">
-            <h1 style="color:#000;">Step 3 確認送出</h1>
-        </div>
+	  <form accept-charset="UTF-8" action="/" class="new_attr" id="new_attr" method="post">
+	    <div class="attri">
+		     <h1>Step 2 加權你的旅遊屬性</h1>
+		     <div style="width:300px; position:absolute; top:40px; bottom:20px; left:0px;">
+           <div style="width:50px; position:absolute; bottom:10px; height:0px; left:10px;">
+             <label for="amount">找美食</label>
+             <input type="hidden" id="amount" style="border:0; color:#f6931f; font-weight:bold; width:50px" />
+           </div>
+           <div style="width:50px; position:absolute; bottom:10px; height:0px; left:65px;">
+             <label for="amount2">找刺激</label>
+             <input type="hidden" id="amount2" style="border:0; color:#f6931f; font-weight:bold; width:50px" />
+           </div>
+           <div style="width:50px; position:absolute; bottom:10px; height:0px; left:120px;">
+             <label for="amount3">找風景</label>
+             <input type="hidden" id="amount3" style="border:0; color:#f6931f; font-weight:bold; width:50px;" />
+           </div>
+           <div style="width:50px; position:absolute; bottom:10px; height:0px; left:175px;">
+              <label for="amount4">找悠閒</label>
+              <input type="hidden" id="amount4" style="border:0; color:#f6931f; font-weight:bold; width:50px;" />
+           </div>
+           <div style="width:50px; position:absolute; bottom:10px; height:0px; left:230px;">
+              <label for="amount5">找好康</label>
+              <input type="hidden" id="amount5" style="border:0; color:#f6931f; font-weight:bold; width:50px;" />
+           </div>
+           <div id="slider" style="position:absolute; top:10px; left:30px; width:10px; height:80px"></div>
+           <div id="slider2" style="position:absolute; top:10px; left:85px; width:10px; height:80px"></div>
+           <div id="slider3" style="position:absolute; top:10px; left:140px; width:10px; height:80px"></div>
+           <div id="slider4" style="position:absolute; top:10px; left:195px; width:10px; height:80px"></div>
+           <div id="slider5" style="position:absolute; top:10px; left:250px; width:10px; height:80px"></div>
+		     </div>
+      </div>
+      <div class="active"><h1 style="color:#000;">Step 3 確認送出</h1></div>
     </form>
-	</div>
-    
+  </div> <!-- end of .menu -->
 
-<div id="scheduleFrame" style="display:none;">
+  <div id="scheduleFrame" style="display:none;">
     <h2 style="color:#fff;">LighTrip</h2>
     
     <div id="traffic_info_temp">a</div>
@@ -85,13 +88,14 @@
       <label for="search">search</label>
       <input type="text" name="search" id="search" />
     </div>
-</div>
+  </div> <!-- End of #scheduleFrame -->
 
-</div>
-    <div id="myMap"></div>
-</div>
+  <div id="myMap">
+  </div><!-- End of #myMap -->
 
+</div><!-- End of #main -->
 
+<div>
 <script type="text/javascript">
   var pos = new google.maps.LatLng(23.996733, 120.212465);
   var myOptions = {
@@ -125,6 +129,7 @@
 
   <% end %>
 </script>
+</div>
 
 
 

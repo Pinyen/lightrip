@@ -82,6 +82,9 @@ GEM
     rake (0.9.2.2)
     rdoc (3.12)
       json (~> 1.4)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
+    rest-graph (2.0.1)
     sass (3.1.18)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -112,8 +115,11 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   jquery-rails
+  json
   pg
   rails (= 3.2.1)
+  rest-client
+  rest-graph
   sass-rails (~> 3.2.3)
   sqlite3
   thin

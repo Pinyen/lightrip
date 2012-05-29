@@ -1,13 +1,19 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.1'
-
+gem 'rest-graph'
+gem 'rest-client'
+gem 'json'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 #gem 'sqlite3'
 
 gem 'sqlite3', :group => [:development, :test]
+
+group :development do
+  gem 'sqlite3'
+end
 
 group :production do
   gem 'thin'
