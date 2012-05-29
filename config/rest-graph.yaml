@@ -1,0 +1,10 @@
+# config/rest-graph.yaml
+development:
+    app_id: '178908542238211'
+    secret: '6e36841de8b3ba2b609f87735641cebe'
+    callback_host: 'localhost:3000'
+
+production:
+    app_id: '178908542238211'
+    secret: '6e36841de8b3ba2b609f87735641cebe'
+    callback_host: 'localhost:3000'
